@@ -82,6 +82,11 @@ public class DatosPersonalesEntity {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+	@Override
+	public String toString() {
+		return "DatosPersonalesEntity [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", edad=" + edad
+				+ "]";
+	}
 	
 	
 
