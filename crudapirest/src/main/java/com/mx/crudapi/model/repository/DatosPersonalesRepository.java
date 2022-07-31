@@ -6,7 +6,7 @@
 * @version 1.0
 * Company: Hector Company
 */  
-package com.mx.crudapi.model.entity.repository;
+package com.mx.crudapi.model.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
