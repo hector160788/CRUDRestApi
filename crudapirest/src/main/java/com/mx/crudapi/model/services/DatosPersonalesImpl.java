@@ -18,11 +18,12 @@ import com.mx.crudapi.model.repository.DatosPersonalesRepository;
 
 /**
  *@class_name：DatosPersonalesImpl
- *@comments: esta clase contiene la logia para conectarse a la BD mediante la capa del services
+ *@comments: esta clase contiene la logica para conectarse a la BD mediante la capa del services
  *@param:
  *@return: 
  *@author: Héctor Camargo
  *@createtime:31 jul. 2022
+ *paso:(7)paso
  */
 @Service
 public class DatosPersonalesImpl implements DatosPersonalesService {

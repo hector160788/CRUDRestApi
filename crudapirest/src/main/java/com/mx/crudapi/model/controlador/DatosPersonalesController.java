@@ -10,6 +10,7 @@ package com.mx.crudapi.model.controlador;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mx.crudapi.model.entity.DatosPersonalesEntity;
+import com.mx.crudapi.model.services.DatosPersonalesService;
 
 /**
  * @class_name：DatosPersonalesController
@@ -37,6 +39,9 @@ import com.mx.crudapi.model.entity.DatosPersonalesEntity;
  */
 @RestController
 public class DatosPersonalesController {
+	
+	@Autowired
+	private DatosPersonalesService dps;
 
 	/*
 	 * ejecutar desde postman por post 
@@ -45,23 +50,24 @@ public class DatosPersonalesController {
 	@PostMapping(path = { "/insertadatospersonales" })
 	public @ResponseBody DatosPersonalesEntity insertaDatosPersonales(@RequestBody DatosPersonalesEntity dpe) {
 		System.out.println(dpe.toString());
+		dps.insertaDatosPersonalesBD(dpe);
 		return dpe;
 	}
 
 	@GetMapping(path = {"/consultadatospersonales"})
 	public @ResponseBody List<DatosPersonalesEntity> consultaDatosPersonales() {
-		List<DatosPersonalesEntity> resul = null;
+		List<DatosPersonalesEntity> resul = dps.consultaDatosPersonalesBD();
 		return resul;
 	}
 	
 	@PutMapping(path = {"/actualizadatospersonales"})
 	public @ResponseBody DatosPersonalesEntity actualizaDatosPersonales(@RequestBody DatosPersonalesEntity dpe) {
-		 return dpe;
+		 return dps.actualizaDatosPersonalesBD(dpe);
 	}
 	
 	@DeleteMapping(path = {"/borradatospersonales"})
 	public @ResponseBody Long borraDatosPersonales(@RequestBody Long id) {
-		return id;
+		return dps.borraDatosPersonalesBD(id);
 	}
 
 }
